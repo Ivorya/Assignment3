@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/Content/Footer.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style=" flex: 1;">
+    <div style="margin-bottom: 0.8cm">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <div align="center" style="height: 30px; font-family: Brush Script MT, Brush Script Std, cursive; color: cornflowerblue; text-shadow: 0.2em 0.5em 0.1em #600, -0.3em 0.1em 0.1em #060, 0.4em -0.3em 0.1em #006; font-size: 50px "><p>Sport Day</p></div>
+                    <div style="position:relative;right:200px">
+                        <ul class="nav navbar-nav">
+                            <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.ActionLink("Events", "Index", "Events")</li>
+                            <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.ActionLink("Send FeedBack", "Contact", "Home")</li>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+
+                                <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.ActionLink("EventTypes", "Index", "EventTypes")</li>
+
+                            }
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                            {
+                                <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.ActionLink("Booking", "Index", "Bookings")</li>
+
+                            }
+                        </ul>
+                    </div>
+                    <div style="position:relative;left:700px">
+                        <ul class="nav navbar-nav">
+                            <li style="font-size: 30px; font-family: Impact, fantasy ">@Html.Partial("_LoginPartial")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+    <hr />
+    <div class="footer-dark" style="position: relative; bottom: -500px; min-height: 40vh; ">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Send FeedBack", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>SportDay</h3>
+                        <p>Location:Melbourne</p>
+                        <p>Telphone:1234567</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+

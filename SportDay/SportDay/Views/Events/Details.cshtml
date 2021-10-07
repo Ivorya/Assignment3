@@ -1,0 +1,224 @@
+﻿@model SportDay.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div>
+        <h4>Event</h4>
+        <hr />
+        <div class="box">
+            <dl class="dl-horizontal">
+                <div class="left">
+                <dd>
+                    <img class="img-thumbnail" src=" @Url.Content("~/Uploads/"+ Model.ImageUrl)" height="1000" width="1000" />
+                </dd>
+        </div>
+        <div class="right">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                EventType
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventType.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Info)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Info)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Postcode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Postcode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
+
+        </div>
+
+        </dl>
+    </div>
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+@if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+{
+    <div class="box">
+        <dl class="dl-horizontal">
+            <div class="left">
+            <dd>
+                <img class="img-thumbnail" src=" @Url.Content("~/Uploads/"+ Model.ImageUrl)" height="1000" width="1000" />
+            </dd>
+    </div>
+    <div class="right">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            EventType
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+    </div>
+
+    </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+
+
+    </p>
+}
+
+<style>
+    body {
+        margin: 0;
+    }
+
+    .box {
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+        .box .left {
+            width: 50%;
+            height: 400px;
+            float: left;
+        }
+
+        .box .right {
+            width: 50%;
+            height: 400px;
+            float: left;
+        }
+</style>
+
